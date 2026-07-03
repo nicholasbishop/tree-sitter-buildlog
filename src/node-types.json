@@ -1,12 +1,50 @@
 [
   {
-    "type": "source_file",
+    "type": "arbitrary_line",
     "named": true,
-    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "arbitrary_text_no_newline",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "clang_diag2",
+    "named": true,
     "fields": {}
   },
   {
-    "type": "hello",
+    "type": "log",
+    "named": true,
+    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "arbitrary_line",
+          "named": true
+        },
+        {
+          "type": "clang_diag2",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "\n",
     "named": false
+  },
+  {
+    "type": "arbitrary_text_no_newline",
+    "named": true
   }
 ]

@@ -2,17 +2,252 @@
   "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
   "name": "buildlog",
   "rules": {
-    "source_file": {
-      "type": "STRING",
-      "value": "hello"
+    "log": {
+      "type": "REPEAT",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "clang_diag2"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "arbitrary_line"
+          }
+        ]
+      }
+    },
+    "rust_diag": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "rust_diag_first_line"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "rust_where"
+        }
+      ]
+    },
+    "rust_where": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "  --> "
+        },
+        {
+          "type": "SYMBOL",
+          "name": "source_ref"
+        }
+      ]
+    },
+    "clang_diag2": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "[^\\n:]+"
+        },
+        {
+          "type": "PATTERN",
+          "value": ":\\d+:\\d+: "
+        },
+        {
+          "type": "PATTERN",
+          "value": "error: [^\\n]+\\n"
+        }
+      ]
+    },
+    "clang_diag": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "source_ref"
+        },
+        {
+          "type": "STRING",
+          "value": ": "
+        },
+        {
+          "type": "SYMBOL",
+          "name": "diag_level"
+        },
+        {
+          "type": "STRING",
+          "value": ": "
+        },
+        {
+          "type": "SYMBOL",
+          "name": "arbitrary_text_no_newline"
+        },
+        {
+          "type": "STRING",
+          "value": "\n"
+        }
+      ]
+    },
+    "source_ref": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "arbitrary_text_no_newline"
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\d+"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": ":"
+                },
+                {
+                  "type": "PATTERN",
+                  "value": "\\d+"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "path": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": -1,
+        "content": {
+          "type": "PATTERN",
+          "value": "[^:\\n]+"
+        }
+      }
+    },
+    "rust_diag_first_line": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "rust_diag_introducer"
+        },
+        {
+          "type": "PATTERN",
+          "value": ".*"
+        }
+      ]
+    },
+    "rust_diag_introducer": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "diag_level"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_rust_error_code"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        }
+      ]
+    },
+    "_rust_error_code": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "[E"
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\d+"
+        },
+        {
+          "type": "STRING",
+          "value": "]"
+        }
+      ]
+    },
+    "diag_level": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "error"
+        },
+        {
+          "type": "STRING",
+          "value": "warning"
+        },
+        {
+          "type": "STRING",
+          "value": "note"
+        }
+      ]
+    },
+    "arbitrary_word": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": -2,
+        "content": {
+          "type": "PATTERN",
+          "value": "\\S+"
+        }
+      }
+    },
+    "arbitrary_text_no_newline": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": -1,
+        "content": {
+          "type": "PATTERN",
+          "value": "[^\\n]+"
+        }
+      }
+    },
+    "arbitrary_line": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "arbitrary_text_no_newline"
+        },
+        {
+          "type": "STRING",
+          "value": "\n"
+        }
+      ]
     }
   },
-  "extras": [
-    {
-      "type": "PATTERN",
-      "value": "\\s"
-    }
-  ],
+  "extras": [],
   "conflicts": [],
   "precedences": [],
   "externals": [],

@@ -1,0 +1,146 @@
+========
+Clang 22
+========
+
+test.cc:3:1: error: 'main' must return 'int'
+    3 | void main() {
+      | ^~~~
+      | int
+test.cc:4:15: error: no viable constructor or deduction guide for deduction of template
+      arguments of 'std::vector'
+    4 |   std::vector v;
+      |               ^
+/usr/bin/../lib/gcc/x86_64-redhat-linux/16/../../../../include/c++/16/bits/stl_vector.h:551:7: note: 
+      candidate template ignored: couldn't infer template argument '_Tp'
+  551 |       vector() = default;
+      |       ^
+/usr/bin/../lib/gcc/x86_64-redhat-linux/16/../../../../include/c++/16/bits/stl_vector.h:551:7: note: 
+      implicit deduction guide declared as 'template <typename _Tp, typename _Alloc =
+      std::allocator<_Tp>> vector() -> std::vector<_Tp, _Alloc>'
+/usr/bin/../lib/gcc/x86_64-redhat-linux/16/../../../../include/c++/16/bits/stl_vector.h:562:7: note: 
+      candidate function template not viable: requires single argument '__a', but no
+      arguments were provided
+  562 |       vector(const allocator_type& __a) _GLIBCXX_NOEXCEPT
+      |       ^      ~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/bin/../lib/gcc/x86_64-redhat-linux/16/../../../../include/c++/16/bits/stl_vector.h:562:7: note: 
+      implicit deduction guide declared as 'template <typename _Tp, typename _Alloc =
+      std::allocator<_Tp>> explicit vector(const allocator_type &__a) ->
+      std::vector<_Tp, _Alloc>'
+/usr/bin/../lib/gcc/x86_64-redhat-linux/16/../../../../include/c++/16/bits/stl_vector.h:621:7: note: 
+      candidate function template not viable: requires single argument '__x', but no
+      arguments were provided
+  621 |       vector(const vector& __x)
+      |       ^      ~~~~~~~~~~~~~~~~~
+/usr/bin/../lib/gcc/x86_64-redhat-linux/16/../../../../include/c++/16/bits/stl_vector.h:621:7: note: 
+      implicit deduction guide declared as 'template <typename _Tp, typename _Alloc =
+      std::allocator<_Tp>> vector(const vector<_Tp, _Alloc> &__x) -> std::vector<_Tp,
+      _Alloc>'
+/usr/bin/../lib/gcc/x86_64-redhat-linux/16/../../../../include/c++/16/bits/stl_vector.h:640:7: note: 
+      candidate function template not viable: requires 1 argument, but 0 were provided
+  640 |       vector(vector&&) noexcept = default;
+      |       ^      ~~~~~~~~
+/usr/bin/../lib/gcc/x86_64-redhat-linux/16/../../../../include/c++/16/bits/stl_vector.h:640:7: note: 
+      implicit deduction guide declared as 'template <typename _Tp, typename _Alloc =
+      std::allocator<_Tp>> vector(vector<_Tp, _Alloc> &&) -> std::vector<_Tp, _Alloc>'
+/usr/bin/../lib/gcc/x86_64-redhat-linux/16/../../../../include/c++/16/bits/stl_vector.h:460:11: note: 
+      candidate function template not viable: requires 1 argument, but 0 were provided
+  460 |     class vector : protected _Vector_base<_Tp, _Alloc>
+      |           ^~~~~~
+/usr/bin/../lib/gcc/x86_64-redhat-linux/16/../../../../include/c++/16/bits/stl_vector.h:460:11: note: 
+      implicit deduction guide declared as 'template <typename _Tp, typename _Alloc =
+      std::allocator<_Tp>> vector(std::vector<_Tp, _Alloc>) -> std::vector<_Tp, _Alloc>'
+/usr/bin/../lib/gcc/x86_64-redhat-linux/16/../../../../include/c++/16/bits/stl_vector.h:576:7: note: 
+      candidate function template not viable: requires at least argument '__n', but no
+      arguments were provided
+  576 |       vector(size_type __n, const allocator_type& __a = allocator_type())
+      |       ^      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/bin/../lib/gcc/x86_64-redhat-linux/16/../../../../include/c++/16/bits/stl_vector.h:576:7: note: 
+      implicit deduction guide declared as 'template <typename _Tp, typename _Alloc =
+      std::allocator<_Tp>> explicit vector(size_type __n, const allocator_type &__a =
+      <null expr>) -> std::vector<_Tp, _Alloc>'
+/usr/bin/../lib/gcc/x86_64-redhat-linux/16/../../../../include/c++/16/bits/stl_vector.h:644:7: note: 
+      candidate function template not viable: requires 2 arguments, but 0 were provided
+  644 |       vector(const vector& __x, const __type_identity_t<allocator_type>& __a)
+      |       ^      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/bin/../lib/gcc/x86_64-redhat-linux/16/../../../../include/c++/16/bits/stl_vector.h:644:7: note: 
+      implicit deduction guide declared as 'template <typename _Tp, typename _Alloc =
+      std::allocator<_Tp>> vector(const vector<_Tp, _Alloc> &__x, const
+      __type_identity_t<allocator_type> &__a) -> std::vector<_Tp, _Alloc>'
+/usr/bin/../lib/gcc/x86_64-redhat-linux/16/../../../../include/c++/16/bits/stl_vector.h:679:7: note: 
+      candidate function template not viable: requires 2 arguments, but 0 were provided
+  679 |       vector(vector&& __rv, const __type_identity_t<allocator_type>& __m)
+      |       ^      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/bin/../lib/gcc/x86_64-redhat-linux/16/../../../../include/c++/16/bits/stl_vector.h:679:7: note: 
+      implicit deduction guide declared as 'template <typename _Tp, typename _Alloc =
+      std::allocator<_Tp>> vector(vector<_Tp, _Alloc> &&__rv, const
+      __type_identity_t<allocator_type> &__m) -> std::vector<_Tp, _Alloc>'
+/usr/bin/../lib/gcc/x86_64-redhat-linux/16/../../../../include/c++/16/bits/stl_vector.h:698:7: note: 
+      candidate function template not viable: requires at least argument '__l', but no
+      arguments were provided
+  698 |       vector(initializer_list<value_type> __l,
+      |       ^      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  699 |              const allocator_type& __a = allocator_type())
+      |              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/bin/../lib/gcc/x86_64-redhat-linux/16/../../../../include/c++/16/bits/stl_vector.h:698:7: note: 
+      implicit deduction guide declared as 'template <typename _Tp, typename _Alloc =
+      std::allocator<_Tp>> vector(initializer_list<value_type> __l, const allocator_type
+      &__a = <null expr>) -> std::vector<_Tp, _Alloc>'
+/usr/bin/../lib/gcc/x86_64-redhat-linux/16/../../../../include/c++/16/bits/stl_vector.h:589:7: note: 
+      candidate function template not viable: requires at least 2 arguments, but 0 were
+      provided
+  589 |       vector(size_type __n, const value_type& __value,
+      |       ^      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  590 |              const allocator_type& __a = allocator_type())
+      |              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/bin/../lib/gcc/x86_64-redhat-linux/16/../../../../include/c++/16/bits/stl_vector.h:589:7: note: 
+      implicit deduction guide declared as 'template <typename _Tp, typename _Alloc =
+      std::allocator<_Tp>> vector(size_type __n, const value_type &__value, const
+      allocator_type &__a = <null expr>) -> std::vector<_Tp, _Alloc>'
+/usr/bin/../lib/gcc/x86_64-redhat-linux/16/../../../../include/c++/16/bits/stl_vector.h:655:7: note: 
+      candidate function template not viable: requires 3 arguments, but 0 were provided
+  655 |       vector(vector&& __rv, const allocator_type& __m, true_type) noexcept
+      |       ^      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/bin/../lib/gcc/x86_64-redhat-linux/16/../../../../include/c++/16/bits/stl_vector.h:655:7: note: 
+      implicit deduction guide declared as 'template <typename _Tp, typename _Alloc =
+      std::allocator<_Tp>> vector(vector<_Tp, _Alloc> &&__rv, const allocator_type &__m,
+      true_type) -> std::vector<_Tp, _Alloc>'
+/usr/bin/../lib/gcc/x86_64-redhat-linux/16/../../../../include/c++/16/bits/stl_vector.h:660:7: note: 
+      candidate function template not viable: requires 3 arguments, but 0 were provided
+  660 |       vector(vector&& __rv, const allocator_type& __m, false_type)
+      |       ^      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/bin/../lib/gcc/x86_64-redhat-linux/16/../../../../include/c++/16/bits/stl_vector.h:660:7: note: 
+      implicit deduction guide declared as 'template <typename _Tp, typename _Alloc =
+      std::allocator<_Tp>> vector(vector<_Tp, _Alloc> &&__rv, const allocator_type &__m,
+      false_type) -> std::vector<_Tp, _Alloc>'
+/usr/bin/../lib/gcc/x86_64-redhat-linux/16/../../../../include/c++/16/bits/stl_vector.h:726:2: note: 
+      candidate function template not viable: requires at least 2 arguments, but 0 were
+      provided
+  726 |         vector(_InputIterator __first, _InputIterator __last,
+      |         ^      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  727 |                const allocator_type& __a = allocator_type())
+      |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/bin/../lib/gcc/x86_64-redhat-linux/16/../../../../include/c++/16/bits/stl_vector.h:726:2: note: 
+      implicit deduction guide declared as 'template <typename _Tp, typename _Alloc =
+      std::allocator<_Tp>, typename _InputIterator, typename =
+      std::_RequireInputIter<_InputIterator>> vector(_InputIterator __first,
+      _InputIterator __last, const allocator_type &__a = <null expr>) ->
+      std::vector<_Tp, _Alloc>'
+/usr/bin/../lib/gcc/x86_64-redhat-linux/16/../../../../include/c++/16/bits/stl_vector.h:2309:5: note: 
+      candidate function template not viable: requires at least 2 arguments, but 0 were
+      provided
+ 2309 |     vector(_InputIterator, _InputIterator, _Allocator = _Allocator())
+      |     ^      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2 errors generated.
+
+---
+
+(log
+  (arbitrary_lines)
+  (rust_diag
+    (rust_diag_first_line
+      (rust_diag_introducer
+        (diag_level)))
+    (rust_where
+      (source_ref
+        (path))))
+  (arbitrary_lines))

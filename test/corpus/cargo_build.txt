@@ -1,0 +1,22 @@
+===========
+Cargo build
+===========
+
+   Compiling emma_app v0.1.0 (/var/home/nbishop/src/emma-editor/app)
+error[E0425]: cannot find value `y` in this scope
+  --> app/src/state/event.rs:46:9
+   |
+46 |         y = 1;
+
+---
+
+(log
+  (arbitrary_lines)
+  (rust_diag
+    (rust_diag_first_line
+      (rust_diag_introducer
+        (diag_level)))
+    (rust_where
+      (source_ref
+        (path))))
+  (arbitrary_lines))
