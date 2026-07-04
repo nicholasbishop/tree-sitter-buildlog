@@ -1,21 +1,34 @@
 [
   {
-    "type": "arbitrary_line",
+    "type": "diag",
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
-          "type": "arbitrary_text_no_newline",
+          "type": "diag_level",
+          "named": true
+        },
+        {
+          "type": "message",
+          "named": true
+        },
+        {
+          "type": "source_ref",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "clang_diag2",
+    "type": "diag_level",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "junk_lines",
     "named": true,
     "fields": {}
   },
@@ -29,11 +42,11 @@
       "required": false,
       "types": [
         {
-          "type": "arbitrary_line",
+          "type": "diag",
           "named": true
         },
         {
-          "type": "clang_diag2",
+          "type": "junk_lines",
           "named": true
         }
       ]
@@ -44,7 +57,27 @@
     "named": false
   },
   {
-    "type": "arbitrary_text_no_newline",
+    "type": "\n  --> ",
+    "named": false
+  },
+  {
+    "type": ": ",
+    "named": false
+  },
+  {
+    "type": "error",
+    "named": false
+  },
+  {
+    "type": "message",
     "named": true
+  },
+  {
+    "type": "source_ref",
+    "named": true
+  },
+  {
+    "type": "warning",
+    "named": false
   }
 ]

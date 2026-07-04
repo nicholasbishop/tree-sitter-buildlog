@@ -9,80 +9,31 @@
         "members": [
           {
             "type": "SYMBOL",
-            "name": "clang_diag2"
+            "name": "diag"
           },
           {
             "type": "SYMBOL",
-            "name": "arbitrary_line"
+            "name": "junk_lines"
           }
         ]
       }
     },
-    "rust_diag": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "rust_diag_first_line"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "rust_where"
-        }
-      ]
+    "junk_lines": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "SYMBOL",
+        "name": "_junk_line"
+      }
     },
-    "rust_where": {
+    "_junk_line": {
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "  --> "
-        },
-        {
-          "type": "SYMBOL",
-          "name": "source_ref"
-        }
-      ]
-    },
-    "clang_diag2": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[^\\n:]+"
-        },
-        {
-          "type": "PATTERN",
-          "value": ":\\d+:\\d+: "
-        },
-        {
-          "type": "PATTERN",
-          "value": "error: [^\\n]+\\n"
-        }
-      ]
-    },
-    "clang_diag": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "source_ref"
-        },
-        {
-          "type": "STRING",
-          "value": ": "
-        },
-        {
-          "type": "SYMBOL",
-          "name": "diag_level"
-        },
-        {
-          "type": "STRING",
-          "value": ": "
-        },
-        {
-          "type": "SYMBOL",
-          "name": "arbitrary_text_no_newline"
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_junk"
+          }
         },
         {
           "type": "STRING",
@@ -90,69 +41,35 @@
         }
       ]
     },
-    "source_ref": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "arbitrary_text_no_newline"
-        },
-        {
-          "type": "STRING",
-          "value": ":"
-        },
-        {
-          "type": "PATTERN",
-          "value": "\\d+"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ":"
-                },
-                {
-                  "type": "PATTERN",
-                  "value": "\\d+"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        }
-      ]
-    },
-    "path": {
+    "_junk": {
       "type": "TOKEN",
       "content": {
         "type": "PREC",
         "value": -1,
         "content": {
           "type": "PATTERN",
-          "value": "[^:\\n]+"
+          "value": "."
         }
       }
     },
-    "rust_diag_first_line": {
-      "type": "SEQ",
+    "diag": {
+      "type": "CHOICE",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "rust_diag_introducer"
+          "name": "_clang_diag"
         },
         {
-          "type": "PATTERN",
-          "value": ".*"
+          "type": "SYMBOL",
+          "name": "_rust_diag"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_generic_diag"
         }
       ]
     },
-    "rust_diag_introducer": {
+    "_generic_diag": {
       "type": "SEQ",
       "members": [
         {
@@ -160,39 +77,116 @@
           "name": "diag_level"
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "_rust_error_code"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
+          "type": "STRING",
+          "value": ": "
+        },
+        {
+          "type": "SYMBOL",
+          "name": "message"
         },
         {
           "type": "STRING",
-          "value": ":"
+          "value": "\n"
         }
       ]
     },
-    "_rust_error_code": {
+    "_clang_diag": {
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "[E"
-        },
-        {
-          "type": "PATTERN",
-          "value": "\\d+"
+          "type": "SYMBOL",
+          "name": "source_ref"
         },
         {
           "type": "STRING",
-          "value": "]"
+          "value": ": "
+        },
+        {
+          "type": "SYMBOL",
+          "name": "diag_level"
+        },
+        {
+          "type": "STRING",
+          "value": ": "
+        },
+        {
+          "type": "SYMBOL",
+          "name": "message"
+        },
+        {
+          "type": "STRING",
+          "value": "\n"
         }
       ]
+    },
+    "_rust_diag": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "diag_level"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_rust_error_code"
+        },
+        {
+          "type": "STRING",
+          "value": ": "
+        },
+        {
+          "type": "SYMBOL",
+          "name": "message"
+        },
+        {
+          "type": "STRING",
+          "value": "\n  --> "
+        },
+        {
+          "type": "SYMBOL",
+          "name": "source_ref"
+        },
+        {
+          "type": "STRING",
+          "value": "\n"
+        }
+      ]
+    },
+    "message": {
+      "type": "PATTERN",
+      "value": ".+"
+    },
+    "source_ref": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "PATTERN",
+            "value": "[^\\n]+"
+          },
+          {
+            "type": "STRING",
+            "value": ":"
+          },
+          {
+            "type": "PATTERN",
+            "value": "\\d+"
+          },
+          {
+            "type": "STRING",
+            "value": ":"
+          },
+          {
+            "type": "PATTERN",
+            "value": "\\d+"
+          }
+        ]
+      }
+    },
+    "_rust_error_code": {
+      "type": "PATTERN",
+      "value": "\\[E\\d+\\]"
     },
     "diag_level": {
       "type": "CHOICE",
@@ -204,51 +198,16 @@
         {
           "type": "STRING",
           "value": "warning"
-        },
-        {
-          "type": "STRING",
-          "value": "note"
-        }
-      ]
-    },
-    "arbitrary_word": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": -2,
-        "content": {
-          "type": "PATTERN",
-          "value": "\\S+"
-        }
-      }
-    },
-    "arbitrary_text_no_newline": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": -1,
-        "content": {
-          "type": "PATTERN",
-          "value": "[^\\n]+"
-        }
-      }
-    },
-    "arbitrary_line": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "arbitrary_text_no_newline"
-        },
-        {
-          "type": "STRING",
-          "value": "\n"
         }
       ]
     }
   },
   "extras": [],
-  "conflicts": [],
+  "conflicts": [
+    [
+      "junk_lines"
+    ]
+  ],
   "precedences": [],
   "externals": [],
   "inline": [],
