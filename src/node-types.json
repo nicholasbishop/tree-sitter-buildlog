@@ -8,7 +8,15 @@
       "required": true,
       "types": [
         {
-          "type": "diag_level",
+          "type": "lvl_error",
+          "named": true
+        },
+        {
+          "type": "lvl_note",
+          "named": true
+        },
+        {
+          "type": "lvl_warning",
           "named": true
         },
         {
@@ -21,11 +29,6 @@
         }
       ]
     }
-  },
-  {
-    "type": "diag_level",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "junk_lines",
@@ -65,23 +68,23 @@
     "named": false
   },
   {
-    "type": "error",
-    "named": false
+    "type": "lvl_error",
+    "named": true
+  },
+  {
+    "type": "lvl_note",
+    "named": true
+  },
+  {
+    "type": "lvl_warning",
+    "named": true
   },
   {
     "type": "message",
     "named": true
   },
   {
-    "type": "note",
-    "named": false
-  },
-  {
     "type": "source_ref",
     "named": true
-  },
-  {
-    "type": "warning",
-    "named": false
   }
 ]

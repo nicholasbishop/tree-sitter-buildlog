@@ -74,7 +74,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "diag_level"
+          "name": "_diag_level"
         },
         {
           "type": "STRING",
@@ -103,7 +103,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "diag_level"
+          "name": "_diag_level"
         },
         {
           "type": "STRING",
@@ -124,7 +124,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "diag_level"
+          "name": "_diag_level"
         },
         {
           "type": "SYMBOL",
@@ -188,22 +188,34 @@
       "type": "PATTERN",
       "value": "\\[E\\d+\\]"
     },
-    "diag_level": {
+    "_diag_level": {
       "type": "CHOICE",
       "members": [
         {
-          "type": "STRING",
-          "value": "error"
+          "type": "SYMBOL",
+          "name": "lvl_error"
         },
         {
-          "type": "STRING",
-          "value": "warning"
+          "type": "SYMBOL",
+          "name": "lvl_warning"
         },
         {
-          "type": "STRING",
-          "value": "note"
+          "type": "SYMBOL",
+          "name": "lvl_note"
         }
       ]
+    },
+    "lvl_error": {
+      "type": "STRING",
+      "value": "error"
+    },
+    "lvl_warning": {
+      "type": "STRING",
+      "value": "warning"
+    },
+    "lvl_note": {
+      "type": "STRING",
+      "value": "note"
     }
   },
   "extras": [],

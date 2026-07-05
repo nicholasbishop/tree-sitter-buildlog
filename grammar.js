@@ -35,7 +35,7 @@ export default grammar({
     ),
 
     _generic_diag: $ => seq(
-      $.diag_level,
+      $._diag_level,
       ': ',
       $.message,
       '\n',
@@ -44,14 +44,14 @@ export default grammar({
     _clang_diag: $ => seq(
       $.source_ref,
       ': ',
-      $.diag_level,
+      $._diag_level,
       ': ',
       $.message,
       '\n',
     ),
 
     _rust_diag: $ => seq(
-      $.diag_level,
+      $._diag_level,
       $._rust_error_code,
       ': ',
       $.message,
@@ -72,10 +72,14 @@ export default grammar({
 
     _rust_error_code: $ => /\[E\d+\]/,
 
-    diag_level: $ => choice(
-      'error',
-      'warning',
-      'note',
+    _diag_level: $ => choice(
+      $.lvl_error,
+      $.lvl_warning,
+      $.lvl_note,
     ),
+
+    lvl_error: $ => 'error',
+    lvl_warning: $ => 'warning',
+    lvl_note: $ => 'note',
   }
 });

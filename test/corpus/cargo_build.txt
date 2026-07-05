@@ -27,11 +27,11 @@ error: could not compile `emma_app` (lib) due to 1 previous error
 (log
   (junk_lines)
   (diag
-    (diag_level)
+    (lvl_error)
     (message)
     (source_ref))
   (junk_lines)
   (junk_lines)
   (diag
-    (diag_level)
+    (lvl_error)
     (message)))
