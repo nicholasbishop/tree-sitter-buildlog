@@ -146,84 +146,138 @@ test.cc:4:15: error: no viable constructor or deduction guide for deduction of t
     (diag_level)
     (message))
   (junk_lines)
-  (ERROR
-    (source_ref))
+  (diag
+    (source_ref)
+    (diag_level)
+    (message))
   (junk_lines)
-  (ERROR
-    (source_ref))
+  (diag
+    (source_ref)
+    (diag_level)
+    (message))
   (junk_lines)
-  (ERROR
-    (source_ref))
+  (diag
+    (source_ref)
+    (diag_level)
+    (message))
   (junk_lines)
-  (ERROR
-    (source_ref))
+  (diag
+    (source_ref)
+    (diag_level)
+    (message))
   (junk_lines)
-  (ERROR
-    (source_ref))
+  (diag
+    (source_ref)
+    (diag_level)
+    (message))
   (junk_lines)
-  (ERROR
-    (source_ref))
+  (diag
+    (source_ref)
+    (diag_level)
+    (message))
   (junk_lines)
-  (ERROR
-    (source_ref))
+  (diag
+    (source_ref)
+    (diag_level)
+    (message))
   (junk_lines)
-  (ERROR
-    (source_ref))
+  (diag
+    (source_ref)
+    (diag_level)
+    (message))
   (junk_lines)
-  (ERROR
-    (source_ref))
+  (diag
+    (source_ref)
+    (diag_level)
+    (message))
   (junk_lines)
-  (ERROR
-    (source_ref))
+  (diag
+    (source_ref)
+    (diag_level)
+    (message))
   (junk_lines)
-  (ERROR
-    (source_ref))
+  (diag
+    (source_ref)
+    (diag_level)
+    (message))
   (junk_lines)
-  (ERROR
-    (source_ref))
+  (diag
+    (source_ref)
+    (diag_level)
+    (message))
   (junk_lines)
-  (ERROR
-    (source_ref))
+  (diag
+    (source_ref)
+    (diag_level)
+    (message))
   (junk_lines)
-  (ERROR
-    (source_ref))
+  (diag
+    (source_ref)
+    (diag_level)
+    (message))
   (junk_lines)
-  (ERROR
-    (source_ref))
+  (diag
+    (source_ref)
+    (diag_level)
+    (message))
   (junk_lines)
-  (ERROR
-    (source_ref))
+  (diag
+    (source_ref)
+    (diag_level)
+    (message))
   (junk_lines)
-  (ERROR
-    (source_ref))
+  (diag
+    (source_ref)
+    (diag_level)
+    (message))
   (junk_lines)
-  (ERROR
-    (source_ref))
+  (diag
+    (source_ref)
+    (diag_level)
+    (message))
   (junk_lines)
-  (ERROR
-    (source_ref))
+  (diag
+    (source_ref)
+    (diag_level)
+    (message))
   (junk_lines)
-  (ERROR
-    (source_ref))
+  (diag
+    (source_ref)
+    (diag_level)
+    (message))
   (junk_lines)
-  (ERROR
-    (source_ref))
+  (diag
+    (source_ref)
+    (diag_level)
+    (message))
   (junk_lines)
-  (ERROR
-    (source_ref))
+  (diag
+    (source_ref)
+    (diag_level)
+    (message))
   (junk_lines)
-  (ERROR
-    (source_ref))
+  (diag
+    (source_ref)
+    (diag_level)
+    (message))
   (junk_lines)
-  (ERROR
-    (source_ref))
+  (diag
+    (source_ref)
+    (diag_level)
+    (message))
   (junk_lines)
-  (ERROR
-    (source_ref))
+  (diag
+    (source_ref)
+    (diag_level)
+    (message))
   (junk_lines)
-  (ERROR
-    (source_ref))
+  (diag
+    (source_ref)
+    (diag_level)
+    (message))
   (junk_lines)
-  (ERROR
-    (source_ref))
+  (diag
+    (source_ref)
+    (diag_level)
+    (message))
   (junk_lines))

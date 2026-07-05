@@ -32,7 +32,6 @@ error: could not compile `emma_app` (lib) due to 1 previous error
     (source_ref))
   (junk_lines)
   (junk_lines)
-  (ERROR
-    (diag_level))
-  (junk_lines)
-)
+  (diag
+    (diag_level)
+    (message)))

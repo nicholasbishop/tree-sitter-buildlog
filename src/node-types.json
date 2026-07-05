@@ -73,6 +73,10 @@
     "named": true
   },
   {
+    "type": "note",
+    "named": false
+  },
+  {
     "type": "source_ref",
     "named": true
   },

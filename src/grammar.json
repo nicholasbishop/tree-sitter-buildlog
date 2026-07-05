@@ -154,7 +154,7 @@
     },
     "message": {
       "type": "PATTERN",
-      "value": ".+"
+      "value": ".*"
     },
     "source_ref": {
       "type": "TOKEN",
@@ -198,6 +198,10 @@
         {
           "type": "STRING",
           "value": "warning"
+        },
+        {
+          "type": "STRING",
+          "value": "note"
         }
       ]
     }

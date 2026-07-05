@@ -60,7 +60,7 @@ export default grammar({
       '\n',
     ),
 
-    message: $ => /.+/,
+    message: $ => /.*/,
 
     source_ref: $ => token(seq(
       /[^\n]+/,
@@ -75,6 +75,7 @@ export default grammar({
     diag_level: $ => choice(
       'error',
       'warning',
+      'note',
     ),
   }
 });
