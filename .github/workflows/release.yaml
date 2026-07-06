@@ -12,5 +12,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - uses: Swatinem/rust-cache@v2
-      - run: cargo run -- --condition subject -p tree-sitter-buildlog
+      - run: cargo install auto-release
+      - run: auto-release -p tree-sitter-buildlog --condition subject
