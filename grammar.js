@@ -55,7 +55,7 @@ export default grammar({
       $._rust_error_code,
       ': ',
       $.message,
-      '\n  --> ',
+      /\n[ ]*--> /,
       $.source_ref,
       '\n',
     ),

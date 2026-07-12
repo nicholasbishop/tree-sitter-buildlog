@@ -35,3 +35,81 @@ error: could not compile `emma_app` (lib) due to 1 previous error
   (diag
     (lvl_error)
     (message)))
+
+=============
+Cargo build 2
+=============
+
+cargo fmt --all && cargo xtask check 
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.05s
+     Running `target/debug/xtask check`
+ INFO xtask: cargo fmt --check
+ INFO xtask: cargo build -p emma_service
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.05s
+ INFO xtask: target/debug/emma_service --service-socket /tmp/emma-xtask-QwI4FY/socket
+ INFO xtask: cargo build -p emma_ssh_client
+ INFO emma_service::service: binding to /tmp/emma-xtask-QwI4FY/socket
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.03s
+ INFO xtask: EMMA_SOCKET_PATH=/tmp/emma-xtask-QwI4FY/socket EMMA_SSH_CLIENT_PATH=/var/home/nbishop/src/emma-editor/target/debug/emma_ssh_client RUST_BACKTRACE=1 cargo nextest run --show-progress=none
+   Compiling emma_app v0.1.0 (/var/home/nbishop/src/emma-editor/app)
+error[E0599]: no variant, associated function, or constant named `RerunProcess` found for enum `action::Action` in the current scope
+   --> app/src/key_map.rs:177:45
+    |
+177 |                 ("<ctrl>x+<ctrl>r", Action::RerunProcess),
+    |                                             ^^^^^^^^^^^^ variant, associated function, or constant not found in `action::Action`
+    |
+   ::: app/src/action.rs:59:1
+    |
+ 59 | pub enum Action {
+    | --------------- variant, associated function, or constant `RerunProcess` not found for this enum
+
+error[E0599]: no variant, associated function, or constant named `RerunProcess` found for enum `action::Action` in the current scope
+   --> app/src/state/event.rs:630:21
+    |
+630 |             Action::RerunProcess => {
+    |                     ^^^^^^^^^^^^ variant, associated function, or constant not found in `action::Action`
+    |
+   ::: app/src/action.rs:59:1
+    |
+ 59 | pub enum Action {
+    | --------------- variant, associated function, or constant `RerunProcess` not found for this enum
+
+For more information about this error, try `rustc --explain E0599`.
+error: could not compile `emma_app` (lib) due to 2 previous errors
+warning: build failed, waiting for other jobs to finish...
+error: could not compile `emma_app` (lib test) due to 2 previous errors
+error: command `/var/home/nbishop/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/cargo test --no-run --message-format json-render-diagnostics` exited with code 101
+
+---
+
+(log
+  (junk_lines)
+  (junk_lines)
+  (diag
+    (lvl_error)
+    (message)
+    (source_ref))
+  (junk_lines)
+  (ERROR
+    (source_ref))
+  (junk_lines)
+  (diag
+    (lvl_error)
+    (message)
+    (source_ref))
+  (junk_lines)
+  (ERROR
+    (source_ref))
+  (junk_lines)
+  (diag
+    (lvl_error)
+    (message))
+  (diag
+    (lvl_warning)
+    (message))
+  (diag
+    (lvl_error)
+    (message))
+  (diag
+    (lvl_error)
+    (message)))
