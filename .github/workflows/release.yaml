@@ -17,4 +17,5 @@ jobs:
         id: auth
       - run: cargo install auto-release
       - run: auto-release -p tree-sitter-buildlog --condition subject
-        CARGO_REGISTRY_TOKEN: ${{ steps.auth.outputs.token }}
+        env:
+          CARGO_REGISTRY_TOKEN: ${{ steps.auth.outputs.token }}
